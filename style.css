@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     background: #0a0a0a;
@@ -14,7 +18,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Fondo animado - efecto waveform/timeline */
+/* Fondo animado */
 .animated-bg {
     position: fixed;
     top: 0;
@@ -47,7 +51,6 @@ body {
     }
 }
 
-/* Partículas sutiles (efecto de luz) */
 .animated-bg::before {
     content: '';
     position: absolute;
@@ -73,7 +76,6 @@ body {
     }
 }
 
-/* Líneas de timeline sutiles */
 .animated-bg::after {
     content: '';
     position: absolute;
@@ -98,11 +100,28 @@ body {
     }
 }
 
+/* Header sticky */
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    padding: 1rem 0;
+}
+
+#header.scrolled {
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 5%;
+    padding: 1rem 5%;
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
@@ -125,18 +144,48 @@ nav {
 .nav-links a {
     color: #888;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: all 0.3s ease;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     position: relative;
     z-index: 1;
+    font-weight: 400;
 }
 
 .nav-links a:hover {
     color: #fff;
 }
 
+.nav-links a.active {
+    color: #fff;
+    font-weight: 700;
+}
+
+/* Efecto fade-in para secciones */
+.fade-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Efecto para items individuales */
+.fade-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 #hero {
-    height: 80vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -164,6 +213,7 @@ section {
     margin: 0 auto;
     position: relative;
     z-index: 1;
+    min-height: 80vh;
 }
 
 h2 {
@@ -209,10 +259,11 @@ h2 {
 
 footer {
     text-align: center;
-    padding: 2rem;
+    padding: 3rem 5%;
     color: #666;
     position: relative;
     z-index: 1;
+    min-height: auto;
 }
 
 @media (max-width: 768px) {
