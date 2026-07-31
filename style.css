@@ -100,7 +100,7 @@ body {
     }
 }
 
-/* Header sticky */
+/* Header transparente */
 #header {
     position: fixed;
     top: 0;
@@ -108,20 +108,13 @@ body {
     width: 100%;
     z-index: 1000;
     transition: all 0.3s ease;
-    padding: 1rem 0;
-}
-
-#header.scrolled {
-    background: rgba(10, 10, 10, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5%;
+    padding: 2rem 5%;
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
@@ -160,28 +153,37 @@ nav {
     font-weight: 700;
 }
 
-/* Efecto fade-in para secciones */
-.fade-section {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.fade-section.visible {
+/* Efecto scroll - elementos se encojen y difuminan */
+.scroll-element {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Efecto para items individuales */
-.fade-item {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+.scroll-element.fading {
+    opacity: 0.3;
+    transform: scale(0.95);
 }
 
-.fade-item.visible {
+.scroll-element.hidden {
+    opacity: 0.1;
+    transform: scale(0.9);
+}
+
+.scroll-item {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-item.fading {
+    opacity: 0.3;
+    transform: scale(0.95);
+}
+
+.scroll-item.hidden {
+    opacity: 0.1;
+    transform: scale(0.9);
 }
 
 #hero {
