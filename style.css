@@ -21,8 +21,9 @@ nav {
 }
 
 .logo {
+    font-family: 'Jersey 25', sans-serif;
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 400;
 }
 
 .nav-links {
