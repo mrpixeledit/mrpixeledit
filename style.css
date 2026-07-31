@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     background: #0a0a0a;
     color: #ffffff;
     line-height: 1.6;
@@ -21,9 +21,8 @@ nav {
 }
 
 .logo {
-    font-family: 'Jersey 25', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 400;
+    font-family: 'Jersey 25', cursive;
+    font-size: 1.8rem;
 }
 
 .nav-links {
@@ -36,6 +35,7 @@ nav {
     color: #888;
     text-decoration: none;
     transition: color 0.3s;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .nav-links a:hover {
