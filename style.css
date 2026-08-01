@@ -100,14 +100,14 @@ body {
     }
 }
 
-/* Header transparente */
+/* Header completamente transparente */
 #header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    transition: all 0.3s ease;
+    background: transparent;
 }
 
 nav {
@@ -124,8 +124,6 @@ nav {
 .logo {
     font-family: 'Jersey 25', cursive;
     font-size: 2.5rem;
-    position: relative;
-    z-index: 1;
 }
 
 .nav-links {
@@ -139,8 +137,6 @@ nav {
     text-decoration: none;
     transition: all 0.3s ease;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    position: relative;
-    z-index: 1;
     font-weight: 400;
 }
 
@@ -153,37 +149,24 @@ nav {
     font-weight: 700;
 }
 
-/* Efecto scroll - elementos se encojen y difuminan */
-.scroll-element {
-    opacity: 1;
-    transform: scale(1);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.scroll-element.fading {
-    opacity: 0.3;
-    transform: scale(0.95);
-}
-
-.scroll-element.hidden {
-    opacity: 0.1;
-    transform: scale(0.9);
+/* Animaciones secuenciales de entrada/salida */
+.scroll-section {
+    padding: 5rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 80vh;
 }
 
 .scroll-item {
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    will-change: opacity, transform;
+}
+
+.scroll-item.visible {
     opacity: 1;
     transform: scale(1);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.scroll-item.fading {
-    opacity: 0.3;
-    transform: scale(0.95);
-}
-
-.scroll-item.hidden {
-    opacity: 0.1;
-    transform: scale(0.9);
 }
 
 #hero {
@@ -194,8 +177,6 @@ nav {
     align-items: center;
     text-align: center;
     padding: 0 5%;
-    position: relative;
-    z-index: 1;
 }
 
 #hero h1 {
@@ -207,15 +188,6 @@ nav {
 #hero p {
     font-size: 1.5rem;
     color: #888;
-}
-
-section {
-    padding: 5rem 5%;
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-    min-height: 80vh;
 }
 
 h2 {
@@ -263,8 +235,6 @@ footer {
     text-align: center;
     padding: 3rem 5%;
     color: #666;
-    position: relative;
-    z-index: 1;
     min-height: auto;
 }
 
